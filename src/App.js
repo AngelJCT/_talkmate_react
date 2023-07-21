@@ -59,7 +59,7 @@ function App() {
 
   
   return (
-    <div className='container mx-auto min-[360px] max-md max-w-screen-2xl min-w-sm h-screen relative justify-between'>
+    <div className='flex flex-col items-center justify-center h-screen'>
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d] '>
@@ -71,7 +71,7 @@ function App() {
               <div key={index} className={`flex break-words ${
                 message.type === 'user' ? 'justify-end' : 'justify-start'
               }`}>
-                <div className={`${message.type === 'user' ? 'bg-custom-color' : 'bg-gray-600'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-2 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap`}>
+                <div className={`${message.type === 'user' ? 'bg-custom-color' : 'bg-gray-600'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-2 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
                 {message.message}
                 </div>
               </div>
@@ -89,9 +89,9 @@ function App() {
           </div>
       </div>
       <form onSubmit={handleSubmit} className='flex-none p-6'>
-        <div className='flex rounded-lg border border-gray-300 bg-gray-300 max-[360px]'>
+        <div className='flex flex-col sm:flex-row rounded-lg border border-gray-300 bg-gray-300'>
           <input type='text'
-          className="flex-grow px-2 md:px-4 py-1 md:py-2 bg-transparent text-black focus:outline-none"
+          className="flex-grow px-4 py-2 bg-transparent text-black focus:outline-none"
           placeholder='Ask me something...'
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
@@ -101,8 +101,8 @@ function App() {
               handleSubmit(e);
             }
         }}/>
-          <button type='submit' className='bg-custom-color rounded-lg px-2 md:px-4 py-1 md:py-2 my-1 mx-1 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>➢</button>
-          <button onClick={clearChat} className='bg-custom-color rounded-lg px-2 md:px-4 py-1 md:py-2 my-1 mx-1 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>Clear</button>
+          <button type='submit' className='bg-custom-color rounded-lg px-4 py-2 my-1 mx-1 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300 sm:mt-0'>➢</button>
+          <button onClick={clearChat} className='bg-custom-color rounded-lg px-4 py-2 my-1 mx-1 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300 sm:mt-0'>Clear</button>
         </div>
       </form>
       </div>
