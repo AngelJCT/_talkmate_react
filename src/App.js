@@ -88,8 +88,8 @@ function App() {
           <div ref={messageEndRef} />
           </div>
       </div>
-      <form onSubmit={handleSubmit} className='flex-none p-6 max-[360px]'>
-        <div className='flex rounded-lg border border-gray-300 bg-gray-300'>
+      <form onSubmit={handleSubmit} className='flex-none p-6'>
+        <div className='flex rounded-lg border border-gray-300 bg-gray-300 max-[360px]'>
           <input type='text'
           className="flex-grow px-2 md:px-4 py-1 md:py-2 bg-transparent text-black focus:outline-none"
           placeholder='Ask me something...'
