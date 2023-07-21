@@ -36,6 +36,11 @@
   background-color: #012643ef;
 }
 
+.text-black {
+  --tw-text-opacity: 1;
+  color: #4c5963;
+}
+
 .hover {
   --tw-bg-opacity: 1;
   background-color: #02355d / var(--tw-bg-opacity);

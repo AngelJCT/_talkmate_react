@@ -91,7 +91,7 @@ function App() {
       <form onSubmit={handleSubmit} className='flex-none p-6'>
         <div className='flex flex-col sm:flex-row rounded-lg border border-gray-300 bg-gray-300'>
           <input type='text'
-          className="flex-grow px-4 py-2 bg-transparent text-black focus:outline-none"
+          className="flex-grow px-4 py-2 bg-transparent text-black focus:outline-none font-medium"
           placeholder='Ask me something...'
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
