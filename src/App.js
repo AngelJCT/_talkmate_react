@@ -59,7 +59,7 @@ function App() {
 
   
   return (
-    <div className='container mx-auto max-w-full h-screen relative justify-between'>
+    <div className='container mx-auto w-full h-screen relative justify-between'>
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d] '>
