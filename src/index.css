@@ -1,13 +1,42 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  color: #FFF5F7FA;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.gradient-01 {
+  position: absolute;
+  width: 200px;
+  height: 238px;
+  top: 0;
+  background: #FFF5F7FA;
+  filter: blur(175px);
+}
+
+.gradient-02 {
+  position: absolute;
+  width: 200px;
+  height: 238px;
+  top: -6rem;
+  right: 0px;
+  background: #7aebfb;
+  filter: blur(190px);
+}
+
+.bg-custom-color {
+  background-color: #012643ef;
+}
+
+.hover {
+  --tw-bg-opacity: 1;
+  background-color: #02355d / var(--tw-bg-opacity);
 }
