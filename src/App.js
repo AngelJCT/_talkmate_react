@@ -59,7 +59,7 @@ function App() {
 
   
   return (
-    <div className='flex flex-col items-center justify-center h-screen w-full'>
+    <div className='flex flex-col justify-center h-screen max-w-6xl mx-auto w-full'>
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d] '>
@@ -101,8 +101,8 @@ function App() {
               handleSubmit(e);
             }
         }}/>
-          <button type='submit' className='bg-custom-color rounded-lg px-4 py-2 my-1 mx-1 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300 sm:mt-0'>➢</button>
-          <button onClick={clearChat} className='bg-custom-color rounded-lg px-4 py-2 my-1 mx-1 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300 sm:mt-0'>Clear</button>
+          <button type='submit' className='bg-custom-color rounded-lg px-4 py-2 my-2 mx-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>➢</button>
+          <button onClick={clearChat} className='bg-custom-color rounded-lg px-4 py-2 my-2 mx-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>Clear</button>
         </div>
       </form>
       </div>
