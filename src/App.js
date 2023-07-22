@@ -63,15 +63,17 @@ function App() {
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d] '>
-        <h1 className='bg-custom-text-color bg-opacity-10 text-transparent font-bold bg-clip-text text-center py-3 text-4xl md:text-6xl mb-5'>TalkMate</h1>
+        <div className='bg-gray-200 bg-opacity-90 p-4 shadow-xl rounded-bl-2xl rounded-br-2xl z-10'>
+          <h1 className='text-custom-blue font-bold text-center py-3 text-4xl md:text-6xl'>TalkMate</h1>
+        </div>
         <div className='flex-grow p-2 md:p-6 overflow-y-auto'>
           <div className='flex flex-col space-y-4'>
             {
             chatLog.map((message, index) => (
               <div key={index} className={`flex break-words ${
-                message.type === 'user' ? 'justify-end' : 'justify-start'
-              }`}>
-                <div className={`${message.type === 'user' ? 'bg-custom-color' : 'bg-gray-600'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-2 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
+                message.type === 'user' ? 'justify-end animate-slideInFromRight' : 'justify-start animate-slideInFromLeft'}`
+                }>
+                <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-sm' : 'bg-gray-600 rounded-bl-sm'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-2 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
                 {message.message}
                 </div>
               </div>
@@ -79,7 +81,7 @@ function App() {
           }
           {
             isLoading &&
-            <div key={chatLog.length} className='flex justify-start'>
+            <div key={chatLog.length} className='flex justify-start animate-slideInFromLeft'>
               <div className='bg-gray-800 rounded-lg p-4 text-white max-w-sm'>
                 <TypingAnimation />
               </div>
@@ -89,7 +91,7 @@ function App() {
           </div>
       </div>
       <form onSubmit={handleSubmit} className='flex-none p-6'>
-        <div className='flex flex-col sm:flex-row rounded-lg border border-gray-300 bg-gray-300'>
+        <div className='flex flex-col sm:flex-row rounded-lg border border-transparent bg-gray-200 bg-opacity-90 shadow-xl'>
           <input type='text'
           className="flex-grow px-4 py-2 bg-transparent text-black focus:outline-none font-medium"
           placeholder='Ask me something...'

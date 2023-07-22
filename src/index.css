@@ -36,12 +36,51 @@
   background-color: #012643ef;
 }
 
+.text-transparent {
+  color: #012643ef;
+}
+
 .text-black {
   --tw-text-opacity: 1;
   color: #4c5963;
 }
 
+.text-white {
+  --tw-text-opacity: 1;
+  color: #FFF5F7FA;
+}
+
 .hover {
   --tw-bg-opacity: 1;
   background-color: #02355d / var(--tw-bg-opacity);
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideInFromRight {
+  animation: 0.5s ease-out slideInFromRight;
+}
+
+.animate-slideInFromLeft {
+  animation: 0.5s ease-out slideInFromLeft;
 }
