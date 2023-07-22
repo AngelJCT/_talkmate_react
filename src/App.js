@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
 import TypingAnimation from './components/TypingAnimation';
+import TextareaAutosize from 'react-textarea-autosize'
 
 function App() {
   const [ inputValue, setInputValue ] = useState('');
@@ -92,7 +93,7 @@ function App() {
       </div>
       <form onSubmit={handleSubmit} className='flex-none p-6'>
         <div className='flex flex-col sm:flex-row rounded-lg border border-transparent bg-gray-200 bg-opacity-90 shadow-xl'>
-          <input type='text'
+          <TextareaAutosize
           className="flex-grow px-4 py-2 bg-transparent text-black focus:outline-none font-medium"
           placeholder='Ask me something...'
           value={inputValue}
