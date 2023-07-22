@@ -92,7 +92,7 @@ function App() {
           </div>
       </div>
       <form onSubmit={handleSubmit} className='flex-none p-6'>
-        <div className='flex flex-col sm:flex-row rounded-lg border border-transparent bg-gray-200 bg-opacity-90 shadow-xl'>
+        <div className='flex flex-row sm:flex-row rounded-lg border border-transparent bg-gray-200 bg-opacity-90 shadow-xl'>
           <TextareaAutosize
           className="flex-grow px-4 py-2 bg-transparent text-black focus:outline-none font-medium"
           placeholder='Ask me something...'
@@ -104,8 +104,10 @@ function App() {
               handleSubmit(e);
             }
         }}/>
+        <div className='flex-none flex items-end'>
           <button type='submit' className='bg-custom-color rounded-lg px-4 py-2 my-2 mx-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>➢</button>
           <button onClick={clearChat} className='bg-custom-color rounded-lg px-4 py-2 my-2 mx-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>Clear</button>
+        </div>
         </div>
       </form>
       </div>
