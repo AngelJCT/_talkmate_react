@@ -64,7 +64,7 @@ function App() {
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d] '>
-        <div className='bg-gray-200 bg-opacity-90 p-4 shadow-xl rounded-bl-2xl rounded-br-2xl z-10'>
+        <div className='bg-gray-200 bg-opacity-90 p-2 shadow-xl rounded-bl-2xl rounded-br-2xl z-10'>
           <h1 className='text-custom-blue font-bold text-center py-3 text-4xl md:text-6xl'>TalkMate</h1>
         </div>
         <div className='flex-grow p-2 md:p-6 overflow-y-auto'>
