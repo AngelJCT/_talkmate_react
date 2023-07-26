@@ -105,7 +105,7 @@ function App() {
             }
         }}/>
         <div className='flex-none flex items-end'>
-          <button type='submit' className='bg-custom-color rounded-3xl px-4 py-2 my-2 mx-4 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>➤</button>
+          <button type='submit' className='bg-custom-color rounded-3xl px-4 py-2 my-2 ml-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>➤</button>
           <button onClick={clearChat} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>Clear</button>
         </div>
         </div>
