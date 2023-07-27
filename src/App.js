@@ -74,7 +74,7 @@ function App() {
               <div key={index} className={`flex break-words ${
                 message.type === 'user' ? 'justify-end animate-slideInFromRight' : 'justify-start animate-slideInFromLeft'}`
                 }>
-                <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl' : 'bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-2 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
+                <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl' : 'bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-4 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
                 {message.message}
                 </div>
               </div>
