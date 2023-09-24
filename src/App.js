@@ -31,7 +31,7 @@ function App() {
       'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}` 
     };
     const data = {
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: [
         { "role": "system", "content": "You are a Japanese native speaker. You job is to help me learn Japanese by providing translation, pronunciation and examples. Always give tips of what to do and what not to do according to Japan culture. For any reason, do not answer anything outside of your task (teach Japanese language)." },
         { "role": "user", "content": message }
@@ -60,7 +60,7 @@ function App() {
 
   
   return (
-    <div className='flex flex-col justify-center h-screen max-w-6xl mx-auto w-full'>
+    <div className='flex flex-col justify-center h-screen mx-auto w-full'>
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d] '>
