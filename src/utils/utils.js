@@ -44,16 +44,6 @@ export const clearChat = (setChatLog) => {
     }
 }
 
-export const saveConversation = (chatLog, setConversations) => {
-    const title = prompt("Enter a title for this conversation:");
-    if (title) {
-        const savedConversations = JSON.parse(localStorage.getItem('conversations')) || [];
-        const newConversation = [...savedConversations, { title, messages: chatLog }]
-        try{
-            localStorage.setItem('conversations', JSON.stringify(newConversation));
-        } catch (error) {
-            console.error("Error saving to local storage:", error);
-        }
-        setConversations(newConversation); // Update the state after saving to local storage
-    }
+export const saveConversation = (setIsDialogOpen) => {
+    setIsDialogOpen(true)
 }

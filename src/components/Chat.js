@@ -1,11 +1,13 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { FiMenu, FiX, FiSave, FiSend } from 'react-icons/fi'
 import TypingAnimation from './TypingAnimation';
+import SaveDialogBox from './SaveDialogBox';
 import { handleSubmit, sendMessage, clearChat, saveConversation } from '../utils/utils';
 
 function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIsLoading, isMenuOpen, setIsMenuOpen, conversations, setConversations, activeConversationIndex, setActiveConversationIndex }) {
   const messageEndRef = useRef(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -17,6 +19,18 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
       setChatLog(JSON.parse(savedChatLog));
     }
   }, []);
+
+  const handleSave = (title) => {
+    const savedConversations = JSON.parse(localStorage.getItem('conversations')) || [];
+    const newConversation = [...savedConversations, { title, messages: chatLog }]
+    try {
+      localStorage.setItem('conversations', JSON.stringify(newConversation));
+    } catch (error) {
+      console.error("Error saving to local storage:", error);
+    }
+    setConversations(newConversation); // Update the state after saving to local storage
+    setIsDialogOpen(false); // close the dialog after saving
+  }
 
   return (
     <div className='flex flex-col justify-center h-screen mx-auto w-full z-10'>
@@ -72,13 +86,18 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
               <FiSend size={24} />
             </button>
             {/*<button onClick={clearChat} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>🧹</button>*/}
-            <button onClick={() => saveConversation(chatLog, setConversations)} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>
+            <button onClick={() => saveConversation(setIsDialogOpen)} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>
               <FiSave size={24} />
             </button>
           </div>
           </div>
         </form>
         </div>
+        <SaveDialogBox
+          isOpen={isDialogOpen}
+          onClose={() => setIsDialogOpen(false)}
+          onSave={handleSave}
+        />
     </div>
   )
 }
