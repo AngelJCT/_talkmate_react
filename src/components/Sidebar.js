@@ -27,10 +27,10 @@ function Sidebar({ isOpen, onStateChange, setChatLog, conversations, activeConve
       {conversations.map((conversation, index) => (
         <div
           key={index}
-          className='mb-3'
+          className='mb-1'
           onClick={() => loadConversation(index)}
         >
-          <h3 className={`font-bold text-gray-600 ml-3 cursor-pointer ${index === activeConversationIndex ? 'text-blue-700' : ''}`}>{conversation.title}</h3>
+          <h3 className={`font-bold text-gray-600 pl-3 cursor-pointer border-b-2 border-gray-300 hover:bg-gray-400 pb-2 pt-2 ${index === activeConversationIndex ? 'text-blue-700' : ''}`}>{conversation.title}</h3>
         </div>
       ))}
     </Menu>
