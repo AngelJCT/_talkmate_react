@@ -28,7 +28,7 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
               {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
             <h1 className='text-custom-blue font-bold text-center py-3 text-4xl md:text-6xl'>TalkMate</h1>
-            <div className='w-8 mr-8'></div> {/* This is a spacer to balance the button on the left */}
+            <div className='w-8 mr-7'></div> {/* This is a spacer to balance the button on the left */}
           </div>
           <div className='flex-grow p-2 md:p-6 overflow-y-auto'>
             <div className='flex flex-col space-y-4'>
