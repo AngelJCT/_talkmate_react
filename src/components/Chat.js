@@ -15,6 +15,8 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
     const savedChatLog = localStorage.getItem('chatLog');
     if (savedChatLog) {
       setChatLog(JSON.parse(savedChatLog));
+    } else {
+      setChatLog([{ type: 'system', message: "You are a Japanese native speaker. You job is to help me learn Japanese by providing translation, pronunciation and examples. Always give tips of what to do and what not to do according to Japan culture. For any reason, do not answer anything outside of your task (teach Japanese language), and always go the extra mile."}]);
     }
   }, []);
 

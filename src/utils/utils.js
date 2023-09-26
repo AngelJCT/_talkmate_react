@@ -16,10 +16,11 @@ export const sendMessage = (message, setChatLog, setIsLoading, chatLog) => {
         'Content-type': 'application/json',
         'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}` 
     };
+
     const data = {
-        model: "gpt-4",
+        model: "gpt-3.5-turbo",
         messages: [
-            { "role": "system", "content": "You are a Japanese native speaker. You job is to help me learn Japanese by providing translation, pronunciation and examples. Always give tips of what to do and what not to do according to Japan culture. For any reason, do not answer anything outside of your task (teach Japanese language)." },
+            { "role": "system", "content": "You are a Japanese native speaker. You job is to help me learn Japanese by providing translation, pronunciation and examples. Always give tips of what to do and what not to do according to Japan culture. For any reason, do not answer anything outside of your task (teach Japanese language), and always go the extra mile." },
             { "role": "user", "content": message }
         ]
     };
