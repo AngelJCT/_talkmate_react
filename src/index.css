@@ -18,6 +18,7 @@
   width: 200px;
   height: 238px;
   top: 0;
+  right: 0px;
   background: #FFF5F7FA;
   filter: blur(175px);
 }
@@ -27,7 +28,6 @@
   width: 200px;
   height: 238px;
   top: -6rem;
-  right: 0px;
   background: #7aebfb;
   filter: blur(190px);
 }
