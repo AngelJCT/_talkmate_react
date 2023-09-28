@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         'custom-text-color': '#FFF5F7FA',
         'custom-blue': '#012643ef'
+      },
+      screens: {
+        'xs': '300px'
       }
     },
   },

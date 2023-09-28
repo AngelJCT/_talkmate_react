@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { FiMenu, FiX, FiSave, FiSend } from 'react-icons/fi'
 import TypingAnimation from './TypingAnimation';
+import GlassCard from './GlassCard';
 import SaveDialogBox from './SaveDialogBox';
 import { handleSubmit, sendMessage, clearChat, saveConversation } from '../utils/utils';
 
@@ -32,7 +33,7 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
     <div className='flex flex-col justify-center h-screen mx-auto w-full z-10'>
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
-      <div className='flex flex-col h-screen bg-[#35485d] '>
+      <div className='flex flex-col h-screen bg-[#35485d]'>
         <div className='bg-gray-200 bg-opacity-90 p-2 shadow-xl rounded-bl-2xl rounded-br-2xl z-10 flex items-center justify-between'>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='z-20 ml-3 bg-custom-color rounded-full p-[8px] shadow-xl'>
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -43,15 +44,19 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
         <div className='flex-grow p-2 md:p-6 overflow-y-auto'>
           <div className='flex flex-col space-y-4'>
             {
-            chatLog.map((message, index) => (
-              <div key={index} className={`flex break-words ${
-                message.type === 'user' ? 'justify-end animate-slideInFromRight' : 'justify-start animate-slideInFromLeft'}`
-                }>
-                <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl' : 'bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-4 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
-                {message.message}
+              chatLog.length === 0 ? (
+                <GlassCard hide={chatLog.length > 0} />
+            ) : (
+              chatLog.map((message, index) => (
+                <div key={index} className={`flex break-words ${
+                  message.type === 'user' ? 'justify-end animate-slideInFromRight' : 'justify-start animate-slideInFromLeft'}`
+                  }>
+                  <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl' : 'bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-4 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
+                  {message.message}
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
+            )
           }
           {
             isLoading &&
