@@ -17,7 +17,7 @@ function Sidebar({ isOpen, onStateChange, setChatLog, conversations, activeConve
   return (
     <Menu
       isOpen={isOpen} onStateChange={onStateChange}
-      className='bg-gray-50 backdrop-blur bg-opacity-[.55] bg-clip-padding rounded-br-lg rounded-tr-lg'
+      className='bg-gray-50 backdrop-blur bg-opacity-70 bg-clip-padding rounded-br-lg rounded-tr-lg'
       styles={{ bmMenu: { zIndex: 5 } }}
     >
       <button onClick={startNewChat} className='bg-custom-color font-medium text-xl w-full pt-5 pb-5 shadow-lg text-white rounded-tr-lg'>
