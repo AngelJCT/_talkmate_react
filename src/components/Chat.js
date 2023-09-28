@@ -87,7 +87,7 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
               <FiSend size={24} />
             </button>
             {/*<button onClick={clearChat} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>🧹</button>*/}
-            <button onClick={() => saveConversation(setIsDialogOpen)} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>
+            <button type='button' onClick={() => setIsDialogOpen(true)} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>
               <FiSave size={24} />
             </button>
           </div>

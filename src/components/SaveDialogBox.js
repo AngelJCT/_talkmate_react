@@ -5,7 +5,7 @@ function SaveDialogBox({ isOpen, onClose, onSave }) {
 
   const handleSave = () => {
     onSave(title);
-    // setTitle(""); // reset title after saving
+    setTitle(""); // reset title after saving
   };
 
   if (!isOpen) {

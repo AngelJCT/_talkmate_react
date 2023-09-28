@@ -13,21 +13,20 @@ function App() {
 
   useEffect(() => {
       const savedConversations = localStorage.getItem('conversations');
+      const savedChatLog = localStorage.getItem('chatLog');
+
       if (savedConversations) {
         setConversations(JSON.parse(savedConversations));
       }
+      
+      if (savedChatLog) {
+      setChatLog(JSON.parse(savedChatLog));
+    }
   }, []);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatLog]);
-
-  useEffect(() => {
-    const savedChatLog = localStorage.getItem('chatLog');
-    if (savedChatLog) {
-      setChatLog(JSON.parse(savedChatLog));
-    }
-  }, []);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
