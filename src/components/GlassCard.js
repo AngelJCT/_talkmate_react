@@ -16,7 +16,7 @@ function GlassCard({ hide }) {
 
     const Card = ({title, content}) => (
         <div className="backdrop-blur-md bg-gray-50 bg-opacity-30 bg-clip-padding border border-white border-opacity-20 p-4 rounded-xl shadow-xl w-full h-28 transition-transform duration-700 ease-in-out">
-            <h2 className="text-xl mb-2 text-custom-blue font-bold">{title}</h2>
+            <h2 className="text-xl text-custom-blue font-bold">{title}</h2>
             <p className="text-gray-100 font-medium">{content}</p>
         </div>
       );
@@ -28,14 +28,14 @@ function GlassCard({ hide }) {
                 <Card title="How can I tell someone" content="that I'm grateful for them in Japanese?" />
                 <Card title="How can I introduce myself" content="in Japanese in different scenarios?" />
                 <Card title="What is the difference between" content='"Ore wa" and "Watashi wa" when referring to myself?' />
-                <Card title="Elaborate more about how to refers to someone" content="in respectfully and in casual occasions." />
+                <Card title="Elaborate on how to refers to someone" content="in formal and casual occasions." />
             </Slider>
         </div>
         <div className='hidden md:grid grid-cols-2 gap-6 place-items-center mx-4 md:mx-0'>
             <Card title="How can I tell someone" content="that I'm grateful for them in Japanese?" />
             <Card title="How can I introduce myself" content="in Japanese in different scenarios?" />
             <Card title="What is the difference between" content='"Ore wa" and "Watashi wa" when referring to myself?' />
-            <Card title="Elaborate more about how to refers to someone" content="in respectfully and in casual occasions." />
+            <Card title="Elaborate on how to refers to someone" content="in formal and casual occasions." />
         </div>
     </div>
   );
