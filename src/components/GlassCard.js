@@ -23,7 +23,7 @@ function GlassCard({ hide }) {
 
   return (
     <div className={`flex flex-col justify-end xs:mt-4 md:mt-0 ${hide ? 'hide' : ''}`}>
-        <div className='md:hidden mx-5'>
+        <div className='md:hidden mx-4 shadow-xl'>
             <Slider arrows={false} {...settings}>
                 <Card title="How can I tell someone" content="that I'm grateful for them in Japanese?" />
                 <Card title="How can I introduce myself" content="in Japanese in different scenarios?" />

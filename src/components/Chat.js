@@ -34,7 +34,7 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
       <div className='gradient-01 z-0 absolute'></div>
       <div className='gradient-02 z-0 absolute'></div>
       <div className='flex flex-col h-screen bg-[#35485d]'>
-        <div className='bg-gray-200 bg-opacity-90 p-2 shadow-xl rounded-bl-2xl rounded-br-2xl z-10 flex items-center justify-between'>
+        <div className='bg-gray-200 bg-opacity-90 p-2 shadow-xl rounded-bl-2xl rounded-br-2xl z-10 flex items-center justify-between mb-1'>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='z-20 ml-3 bg-custom-color rounded-full p-[8px] shadow-xl'>
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
