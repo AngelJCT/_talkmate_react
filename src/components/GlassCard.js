@@ -15,7 +15,7 @@ function GlassCard({ hide }) {
     };
 
     const Card = ({title, content}) => (
-        <div className="backdrop-blur-md bg-gray-50 bg-opacity-30 bg-clip-padding border border-white border-opacity-20 p-4 rounded-xl shadow-xl w-full h-32 transition-transform duration-700 ease-in-out">
+        <div className="backdrop-blur-md bg-gray-50 bg-opacity-30 bg-clip-padding border border-white border-opacity-20 p-4 rounded-xl shadow-xl w-full h-28 transition-transform duration-700 ease-in-out">
             <h2 className="text-xl mb-2 text-custom-blue font-bold">{title}</h2>
             <p className="text-gray-100 font-medium">{content}</p>
         </div>
