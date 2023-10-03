@@ -66,7 +66,7 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
           {
             isLoading &&
             <div key={chatLog.length} className='flex justify-start animate-slideInFromLeft'>
-              <div className='bg-white bg-opacity-20 backdrop-blur-lg max-w-sm rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl p-3 m-1'>
+              <div className='bg-white bg-opacity-20 backdrop-blur-lg max-w-sm rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl p-3 m-1 shadow-xl'>
                 <TypingAnimation />
               </div>
             </div>
