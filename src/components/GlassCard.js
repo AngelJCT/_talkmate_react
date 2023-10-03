@@ -15,26 +15,24 @@ function GlassCard({ hide, setChatLog, setIsLoading, chatLog }) {
         infinite: true,
         speed: 300,
         slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToScroll: 1
     };
 
-    const Card = ({title, content}) => {
-        return (
-            <div
-                onClick={(e) => {
-                    setActiveCard(title);
-                    handleCardAnimation(e.currentTarget);
-                    setTimeout(() => {
-                        handleCardClick(`${title} ${content}`);
-                    }, 1000);
-                }}
-                className={`card backdrop-blur-md bg-gray-50 bg-opacity-30 bg-clip-padding border border-white border-opacity-20 p-4 rounded-xl shadow-xl w-full h-28 transition-transform duration-700 ease-in-out cursor-pointer ${activeCard === title ? 'animate-custom-bounce' : ''}`}
-            >
-                <h2 className="text-xl text-custom-blue font-bold">{title}</h2>
-                <p className="text-gray-100 font-medium">{content}</p>
-            </div>
-        )
-    };
+    const Card = ({title, content}) => (
+        <div
+            onClick={(e) => {
+                setActiveCard(title);
+                handleCardAnimation(e.currentTarget);
+                setTimeout(() => {
+                    handleCardClick(`${title} ${content}`);
+                }, 1000);
+            }}
+            className={`card backdrop-blur-md bg-gray-50 bg-opacity-30 bg-clip-padding border border-white border-opacity-20 p-4 rounded-xl shadow-xl w-full h-28 transition-transform duration-700 ease-in-out cursor-pointer ${activeCard === title ? 'animate-custom-bounce' : ''}`}
+        >
+            <h2 className="text-xl text-custom-blue font-bold">{title}</h2>
+            <p className="text-gray-100 font-medium">{content}</p>
+        </div>
+      );
 
     const handleCardClick = (message) => {
         // Add the user's message (from the card) to the chat log
