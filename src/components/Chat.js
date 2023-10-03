@@ -45,7 +45,12 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
           <div className='flex flex-col space-y-4'>
             {
               chatLog.length === 0 ? (
-                <GlassCard hide={chatLog.length > 0} />
+                <GlassCard
+                  hide={chatLog.length > 0}
+                  setChatLog={setChatLog}
+                  setIsLoading={setIsLoading}
+                  chatLog={chatLog}
+                />
             ) : (
               chatLog.map((message, index) => (
                 <div key={index} className={`flex break-words ${
