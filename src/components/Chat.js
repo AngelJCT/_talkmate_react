@@ -1,16 +1,38 @@
 import { useRef, useEffect, useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
-import { FiMenu, FiX, FiSave, FiSend } from 'react-icons/fi'
+import { FiMenu, FiX, FiSave, FiSend, FiMic, FiMicOff } from 'react-icons/fi'
 import TypingAnimation from './TypingAnimation';
 import GlassCard from './GlassCard';
 import SaveDialogBox from './SaveDialogBox';
 import { handleSubmit, sendMessage, clearChat, saveConversation } from '../utils/utils';
 
+
 function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIsLoading, isMenuOpen, setIsMenuOpen, conversations, setConversations, activeConversationIndex, setActiveConversationIndex }) {
   const messageEndRef = useRef(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  // const [isSpeechEnabled, setIsSpeechEnabled] = useState(false);
+  
+  /* const speak = (message) => {
+    if (!isSpeechEnabled) {
+      window.speechSynthesis.cancel();
+      return;
+    }
+    
+    const utterance = new SpeechSynthesisUtterance(message);
+    utterance.rate = 0.8;
+
+    const voices = window.speechSynthesis.getVoices();
+    utterance.voice = voices.find((voice) => voice.name === 'Daniel');
+    window.speechSynthesis.speak(utterance);
+  } */
 
   useEffect(() => {
+
+    /* const lastMessage = chatLog[chatLog.length - 1];
+    if (lastMessage && lastMessage.type !== 'user') {
+      speak(lastMessage.message);
+    } */
+
     messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
 
     // Auto-saving to localStorage
@@ -56,8 +78,22 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
                 <div key={index} className={`flex break-words ${
                   message.type === 'user' ? 'justify-end animate-slideInFromRight' : 'justify-start animate-slideInFromLeft'}`
                   }>
-                  <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl' : 'bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-4 md:p-4 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
+                  <div className={`${message.type === 'user' ? 'bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl' : 'bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl'} bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-5 md:p-5 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}>
                   {message.message}
+                    {/* <button
+                      type="button"
+                      className="speech-toggle-button" 
+                      onClick={() => {
+                        setIsSpeechEnabled(!isSpeechEnabled);
+                        if (!isSpeechEnabled) {
+                          window.speechSynthesis.cancel();
+                        } else {
+                          speak(message.message);
+                        }
+                      }}
+                    >
+                      {isSpeechEnabled ? <FiMicOff size={15} /> : <FiMic size={15} />}
+                    </button> */}
                   </div>
                 </div>
               ))
