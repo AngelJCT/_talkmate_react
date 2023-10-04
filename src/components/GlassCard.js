@@ -30,7 +30,7 @@ function GlassCard({ hide, setChatLog, setIsLoading, chatLog }) {
             className={`card backdrop-blur-md bg-gray-50 bg-opacity-30 bg-clip-padding border border-white border-opacity-20 p-4 rounded-xl shadow-xl w-full h-28 transition-transform duration-700 ease-in-out cursor-pointer ${activeCard === title ? 'animate-custom-bounce' : ''}`}
         >
             <h2 className="text-xl text-custom-blue font-bold">{title}</h2>
-            <p className="text-gray-100 font-medium">{content}</p>
+            <p className="text-custom-text-color font-medium">{content}</p>
         </div>
       );
 

@@ -32,13 +32,13 @@ function Sidebar({ isOpen, onStateChange, setChatLog, conversations, setConversa
   return (
     <Menu
       isOpen={isOpen} onStateChange={onStateChange}
-      className='bg-gray-50 backdrop-blur bg-opacity-70 bg-clip-padding rounded-br-lg rounded-tr-lg'
+      className='bg-gray-50 backdrop-blur bg-opacity-60 bg-clip-padding rounded-br-lg rounded-tr-lg'
       styles={{ bmMenu: { zIndex: 5 } }}
     >
-      <button onClick={startNewChat} className='bg-custom-color font-medium text-xl w-full pt-5 pb-5 shadow-lg text-white rounded-tr-lg'>
+      <button onClick={startNewChat} className='bg-custom-color font-medium text-xl w-full pt-5 pb-5 shadow-lg text-custom-text-color rounded-tr-lg'>
         New Chat
       </button>
-      <h2 className='font-bold pt-5 text-xl text-center mb-4 text-custom-blue pr-2 shadow-xl pb-5 rounded-b-xl'>Conversations</h2>
+      <h2 className='font-bold pt-5 text-xl bg-gray-200 bg-opacity-70 text-center mb-4 text-custom-blue pr-2 shadow-xl pb-5 rounded-b-xl'>Conversations</h2>
       {conversations.map((conversation, index) => (
         <div key={index} className='m-2 flex justify-between items-center position-relative'>
           <h3
