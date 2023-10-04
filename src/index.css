@@ -117,3 +117,11 @@
     opacity: 0;
   }
 }
+
+.speech-toggle-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
