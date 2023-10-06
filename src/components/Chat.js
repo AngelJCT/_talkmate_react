@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import { FiMenu, FiX, FiSave, FiSend, FiMic, FiMicOff } from 'react-icons/fi'
+import { VscSend } from 'react-icons/vsc';
 import TypingAnimation from './TypingAnimation';
 import GlassCard from './GlassCard';
 import SaveDialogBox from './SaveDialogBox';
@@ -125,7 +126,7 @@ function Chat({ inputValue, setInputValue, chatLog, setChatLog, isLoading, setIs
         }} />
           <div className='flex-none flex items-end'>
             <button type='submit' className='bg-custom-color rounded-3xl px-4 py-2 my-2 ml-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>
-              <FiSend size={24} />
+              <VscSend size={24} />
             </button>
             {/*<button onClick={clearChat} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>🧹</button>*/}
             <button type='button' onClick={() => setIsDialogOpen(true)} className='bg-custom-color rounded-3xl px-4 py-2 my-2 mr-2 text-white font-semibold focus:outline-none hover:bg-gray-600 transition-colors duration-300'>
