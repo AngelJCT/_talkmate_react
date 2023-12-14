@@ -13,7 +13,21 @@
   scroll-behavior: smooth;
 }
 
+@keyframes moveGradient {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
 .gradient-01 {
+  animation: moveGradient 5s ease infinite;
+  background-size: 200% 200%;
   position: absolute;
   width: 200px;
   height: 238px;
@@ -24,6 +38,8 @@
 }
 
 .gradient-02 {
+  animation: moveGradient 5s ease infinite;
+  background-size: 200% 200%;
   position: absolute;
   width: 200px;
   height: 238px;
@@ -133,4 +149,212 @@
   right: 0;
   margin-right: 15px;
   margin-bottom: 15px;
+}
+
+.auth-page-wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-card {
+  outline: none;
+  padding: 40px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px; /* Or the max-width you prefer */
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-form input {
+  outline: none;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.auth-form button {
+  background-color: #012643ef;
+  color: #fff5f7fa;
+  border: none;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #003c6aef;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+.auth-header {
+  color: #012643ef;
+  text-align: center;
+  margin-bottom: 17px;
+}
+
+.remember-me-container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #012643ef;
+}
+
+.remember-me-container input[type="checkbox"] {
+  margin-right: 5px;
+  cursor: pointer;
+  color: #012643ef;
+}
+
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 20px;
+  }
+  .auth-form {
+    padding: 15px;
+  }
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.logout-button {
+  position: absolute;
+  bottom: 0;
+}
+
+.new-chat-button button:hover {
+  background-color: #003c6aef;
+}
+
+.toggle-mode {
+  cursor: pointer;
+  color: #012643ef; /* Example color, adjust as needed */
+  text-align: center;
+  margin-top: 10px;
+}
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff5f7fa;
+  transform-origin: right;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff5f7fa;
+  transform-origin: left;
+}
+
+.welcome-page {
+  height: 100vh;
+}
+
+.get-started-button {
+  background-color: #fff5f7fa;
+  color: #012643ef;
+  border: none;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+.circular-container {
+  animation: tilt 2s ease-in-out 0.5s 2;
+  width: 200px; /* or the size you want */
+  height: 200px; /* should be the same as width for a perfect circle */
+  border-radius: 50%; /* this makes the div circular */
+  overflow: hidden; /* ensures the image doesn't escape the circle */
+  display: flex; /* centers the image horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  /* Add border or shadow if desired */
+}
+
+.circular-container img {
+  max-width: 100%;
+  height: 100%; /* maintains aspect ratio */
+  /* If your images are not square or you want to ensure they cover the circle, you can use: */
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.header-text {
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.text-container {
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.get-started-button:hover {
+  background-color: #edededef;
+}
+
+.page-transition {
+  position: relative;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.slide-left {
+  transform: translateX(-100%);
+}
+
+.slide-right {
+  transform: translateX(100%);
 }

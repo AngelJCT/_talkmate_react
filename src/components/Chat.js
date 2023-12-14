@@ -6,6 +6,9 @@ import TypingAnimation from "./TypingAnimation";
 import GlassCard from "./GlassCard";
 import SaveDialogBox from "./SaveDialogBox";
 import { handleSubmit, sendMessage } from "../utils/utils";
+import transition from "../transition";
+import { auth, db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 function Chat({
   inputValue,
@@ -31,19 +34,22 @@ function Chat({
     localStorage.setItem("chatLog", JSON.stringify(chatLog));
   }, [chatLog]);
 
-  const handleSave = (title) => {
-    const savedConversations =
-      JSON.parse(localStorage.getItem("conversations")) || [];
-    const newConversation = [
-      ...savedConversations,
-      { title, messages: chatLog },
-    ];
+  const handleSave = async (title) => {
+    const userId = auth.currentUser.uid;
+
+    const newConversation = {
+      title: title,
+      messages: chatLog,
+      userId: userId,
+    };
+
     try {
-      localStorage.setItem("conversations", JSON.stringify(newConversation));
+      await addDoc(collection(db, "conversations"), newConversation);
+      const updatedConversations = [...conversations, newConversation];
+      setConversations(updatedConversations);
     } catch (error) {
-      console.error("Error saving to local storage:", error);
+      console.error("Error saving to Firebase:", error);
     }
-    setConversations(newConversation); // Update the state after saving to local storage
     setIsDialogOpen(false); // close the dialog after saving
   };
 
