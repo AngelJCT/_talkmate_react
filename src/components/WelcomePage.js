@@ -35,7 +35,7 @@ const WelcomePage = () => {
         <div className="gradient-01 z-0 absolute"></div>
         <div className="gradient-02 z-0 absolute"></div>
         <div className="flex flex-col items-center justify-center h-screen bg-[#142f4df7] min-h-screen overflow-y-auto">
-          <h1 className="header-text font-bold xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mx-5 mb-8 text-gray-100">
+          <h1 className="header-text font-bold xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mx-5 mb-8 text-gray-100 z-20">
             Welcome to TalkMate!
           </h1>
 
