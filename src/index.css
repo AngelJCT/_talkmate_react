@@ -322,6 +322,7 @@
   /* If your images are not square or you want to ensure they cover the circle, you can use: */
   width: 100%;
   object-fit: cover;
+  z-index: 20;
 }
 
 @keyframes fadeIn {
