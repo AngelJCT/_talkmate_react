@@ -26,26 +26,26 @@
 }
 
 .gradient-01 {
-  animation: moveGradient 5s ease infinite;
+  animation: moveGradient 2s ease infinite;
   background-size: 200% 200%;
   position: absolute;
   width: 200px;
-  height: 238px;
+  height: 260px;
   top: 0;
   right: 0px;
   background: #fff5f7fa;
-  filter: blur(175px);
+  filter: blur(160px);
 }
 
 .gradient-02 {
-  animation: moveGradient 5s ease infinite;
+  animation: moveGradient 2s ease infinite;
   background-size: 200% 200%;
   position: absolute;
   width: 200px;
-  height: 238px;
+  height: 260px;
   top: -6rem;
-  background: #7aebfb;
-  filter: blur(190px);
+  background: #62bdc9;
+  filter: blur(170px);
 }
 
 .bg-custom-color {

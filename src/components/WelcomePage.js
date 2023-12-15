@@ -18,7 +18,11 @@ const WelcomePage = () => {
   }, [navigate]);
 
   const handleGetStartedClick = () => {
-    navigate("/auth");
+    navigate("/auth", { state: { initialLoginMode: false } });
+  };
+
+  const handleLoginClick = () => {
+    navigate("/auth", { state: { initialLoginMode: true } });
   };
 
   if (isLoading) {
@@ -30,7 +34,7 @@ const WelcomePage = () => {
       <div className="flex flex-col">
         <div className="gradient-01 z-0 absolute"></div>
         <div className="gradient-02 z-0 absolute"></div>
-        <div className="flex flex-col items-center justify-center h-screen bg-[#35485d] min-h-screen overflow-y-auto">
+        <div className="flex flex-col items-center justify-center h-screen bg-[#142f4df7] min-h-screen overflow-y-auto">
           <h1 className="header-text font-bold xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mx-5 mb-8 text-gray-100">
             Welcome to TalkMate!
           </h1>
@@ -56,13 +60,6 @@ const WelcomePage = () => {
               culture.
               <br />
               <br />
-              Our goal is not just to teach you a new language but to connect
-              you with its essence. Dive into the nuances of conversations,
-              idioms, and phrases that are used daily by native speakers, and
-              truly understand the culture behind the words. With TalkMate,
-              you're not just learning a language; you're experiencing it.
-              <br />
-              <br />
               Ready to embark on your language learning journey?
             </p>
           </div>
@@ -73,6 +70,15 @@ const WelcomePage = () => {
           >
             Join me and let's chat!
           </button>
+
+          <div className="text-center max-w-4xl mt-7">
+            <p className="font-semibold xs:text-xs sm:text-xl md:text-2xl text-gray-100">
+              Already have an account?{" "}
+              <span className="cursor-pointer" onClick={handleLoginClick}>
+                Sign in
+              </span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
