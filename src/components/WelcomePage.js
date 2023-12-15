@@ -66,7 +66,7 @@ const WelcomePage = () => {
 
           <button
             onClick={handleGetStartedClick}
-            className="get-started-button shadow-xl backdrop-blur-md font-medium"
+            className="get-started-button shadow-xl backdrop-blur-md font-semibold"
           >
             Join me and let's chat!
           </button>
