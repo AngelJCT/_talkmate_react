@@ -48,7 +48,7 @@ const WelcomePage = () => {
           </div>
 
           <div className="text-container text-center px-4 xs:mx-3 sm:mx-5 md:mx-10 lg:mx-14 max-w-4xl align-middle mb-8">
-            <p className="font-medium xs:text-xs sm:text-xl md:text-2xl text-gray-100">
+            <p className="font-medium xs:text-sm sm:text-xl md:text-2xl text-gray-100">
               <span className="text-gray-100">
                 Your new AI language learning assistant chatbot.
               </span>
@@ -74,7 +74,10 @@ const WelcomePage = () => {
           <div className="text-center max-w-4xl mt-7">
             <p className="font-semibold xs:text-xs sm:text-xl md:text-2xl text-gray-100">
               Already have an account?{" "}
-              <span className="cursor-pointer" onClick={handleLoginClick}>
+              <span
+                className="cursor-pointer font-bold"
+                onClick={handleLoginClick}
+              >
                 Sign in
               </span>
             </p>
