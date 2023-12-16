@@ -49,10 +49,7 @@ const WelcomePage = () => {
 
           <div className="text-container text-center px-4 xs:mx-3 sm:mx-5 md:mx-10 lg:mx-14 max-w-4xl align-middle mb-8">
             <p className="font-medium xs:text-sm sm:text-xl md:text-2xl text-gray-100">
-              <span className="text-gray-100">
-                Your new AI language learning assistant chatbot.
-              </span>
-              <br />
+              Your new AI language learning assistant chatbot.
               <br />
               TalkMate is your companion in mastering new languages. It provides
               translation, pronunciation, and cultural insights to help you not

@@ -17,6 +17,8 @@ const AuthComponent = ({ onAuthSuccess, initialLoginMode }) => {
   const [isLoginMode, setIsLoginMode] = useState(initialLoginMode || true);
   const [repeatPassword, setRepeatPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
 
   const handleSignUp = async () => {
     if (!email || !password) {
@@ -122,6 +124,21 @@ const AuthComponent = ({ onAuthSuccess, initialLoginMode }) => {
     }
   };
 
+  const Modal = ({ isOpen, onClose, children }) => {
+    if (!isOpen) {
+      return null;
+    }
+
+    return (
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="bg-gray-100 p-4 rounded-md">
+          {children}
+          <button onClick={onClose}>Close</button>
+        </div>
+      </div>
+    );
+  };
+
   const toggleMode = () => {
     setIsLoginMode(!isLoginMode);
     setErrorMessage("");
@@ -148,11 +165,13 @@ const AuthComponent = ({ onAuthSuccess, initialLoginMode }) => {
     try {
       await sendPasswordResetEmail(auth, email);
       // Notify user that email has been sent
-      alert("Password reset email sent. Check your inbox.");
+      setModalContent("Password reset email sent. Check your inbox.");
+      setIsModalOpen(true);
     } catch (error) {
       // Handle errors here, such as invalid email, etc.
       console.error("Password reset error:", error);
-      alert("Failed to send password reset email. Please try again.");
+      setModalContent("Failed to send password reset email. Please try again.");
+      setIsModalOpen(true);
     }
   };
 
@@ -206,6 +225,9 @@ const AuthComponent = ({ onAuthSuccess, initialLoginMode }) => {
               >
                 Forgot password?
               </p>
+              <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+                <p className="text-custom-blue">{modalContent}</p>
+              </Modal>
               <p className="toggle-mode" onClick={toggleMode}>
                 {isLoginMode
                   ? "New here? Sign up"
