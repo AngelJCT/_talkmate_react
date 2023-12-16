@@ -71,11 +71,11 @@ const WelcomePage = () => {
             Join me and let's chat!
           </button>
 
-          <div className="text-center max-w-4xl mt-7">
+          <div className="login-shortcut text-center max-w-4xl mt-7">
             <p className="font-semibold xs:text-xs sm:text-xl md:text-2xl text-gray-100">
               Already have an account?{" "}
               <span
-                className="cursor-pointer font-bold"
+                className="cursor-pointer font-bold underline"
                 onClick={handleLoginClick}
               >
                 Sign in

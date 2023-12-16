@@ -359,3 +359,7 @@
 .slide-right {
   transform: translateX(100%);
 }
+
+.login-shortcut {
+  animation: fadeIn 1.5s ease-in-out forwards;
+}

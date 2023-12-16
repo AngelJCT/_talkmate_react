@@ -4,16 +4,17 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 export const UserContext = createContext(null);
 
-const AuthComponent = ({ onAuthSuccess }) => {
+const AuthComponent = ({ onAuthSuccess, initialLoginMode }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [user, setUser] = useState(null);
   const [rememberMe, setRememberMe] = useState(false);
-  const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isLoginMode, setIsLoginMode] = useState(initialLoginMode || true);
   const [repeatPassword, setRepeatPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -75,12 +76,48 @@ const AuthComponent = ({ onAuthSuccess }) => {
     setUser(null);
   };
 
+  const validateEmail = (email) => {
+    const emailRegex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailRegex.test(email.toLowerCase());
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
+  };
+
+  const sanitizeInput = (input) => {
+    return input.replace(/[<>]/gi, "");
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const sanitizedEmail = sanitizeInput(email);
+    const sanitizedPassword = sanitizeInput(password);
+
+    if (!validateEmail(sanitizedEmail)) {
+      setErrorMessage("Please enter a valid email address");
+      return;
+    }
+
+    if (!validatePassword(sanitizedPassword)) {
+      setErrorMessage(
+        "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      );
+      return;
+    }
+
     // Determine whether to log in or sign up based on some state
     if (isLoginMode) {
       await handleLogIn();
     } else {
+      if (password !== repeatPassword) {
+        setErrorMessage("Passwords do not match");
+        return;
+      }
       await handleSignUp();
     }
   };
@@ -107,6 +144,18 @@ const AuthComponent = ({ onAuthSuccess }) => {
     }
   };
 
+  const handlePasswordReset = async (email) => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      // Notify user that email has been sent
+      alert("Password reset email sent. Check your inbox.");
+    } catch (error) {
+      // Handle errors here, such as invalid email, etc.
+      console.error("Password reset error:", error);
+      alert("Failed to send password reset email. Please try again.");
+    }
+  };
+
   return (
     <UserContext.Provider value={user}>
       <div className="auth-form-container">
@@ -119,14 +168,14 @@ const AuthComponent = ({ onAuthSuccess }) => {
               type="text"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(sanitizeInput(e.target.value))}
               className="text-black"
             />
             <input
               type={passwordVisible ? "text" : "password"}
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(sanitizeInput(e.target.value))}
               className="text-black"
             />
 
@@ -151,6 +200,12 @@ const AuthComponent = ({ onAuthSuccess }) => {
               <button type="submit">
                 {isLoginMode ? "Log In" : "Sign Up"}
               </button>
+              <p
+                onClick={() => handlePasswordReset(email)}
+                className="text-custom-blue text-end mr-1.5 text-xs mt-[10px] cursor-pointer underline"
+              >
+                Forgot password?
+              </p>
               <p className="toggle-mode" onClick={toggleMode}>
                 {isLoginMode
                   ? "New here? Sign up"
