@@ -30,7 +30,7 @@
   background-size: 200% 200%;
   position: absolute;
   width: 200px;
-  height: 260px;
+  height: 300px;
   top: 0;
   right: 0px;
   background: #fff5f7fa;
@@ -42,9 +42,9 @@
   background-size: 200% 200%;
   position: absolute;
   width: 200px;
-  height: 260px;
+  height: 300px;
   top: -6rem;
-  background: #62bdc9;
+  background: #62bdc9f8;
   filter: blur(170px);
 }
 
@@ -362,4 +362,35 @@
 
 .login-shortcut {
   animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.modal {
+  /* Initial state of the modal */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.modal-enter {
+  /* State at the start of entering */
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.modal-enter-active {
+  /* State at the end of entering */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-exit {
+  /* State at the start of exiting */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-exit-active {
+  /* State at the end of exiting */
+  opacity: 0;
+  transform: translateY(100%);
 }
