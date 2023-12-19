@@ -36,7 +36,7 @@ const WelcomePage = () => {
         <div className="gradient-02 z-0 absolute md:w-[550px] sm:w-[400px] sm:h-[350px] sm:blur-[200px] lg:w-[700px] md:h-[350px] lg:h-[550px] md:blur-[250px] lg:blur-[300px] xs:blur-[130px]"></div>
 
         <div className="flex flex-col items-center justify-center h-screen bg-[#142f4df7] min-h-screen overflow-y-auto">
-          <div className="circular-container mb-8 shadow-2xl xs:w-[150px] xs:h-[150px] sm:w-[200px] sm:h-[200px] mx-auto">
+          <div className="circular-container mb-8 shadow-2xl drop-shadow-2xl xs:w-[150px] xs:h-[150px] sm:w-[200px] sm:h-[200px] mx-auto">
             <img
               src="/assets/images/result.jpg"
               alt="logo"
@@ -70,7 +70,7 @@ const WelcomePage = () => {
             <p className="font-semibold xs:text-xs sm:text-xl md:text-2xl text-gray-100">
               Already have an account?{" "}
               <span
-                className="cursor-pointer font-bold underline"
+                className="cursor-pointer font-bold underline shadow-xl drop-shadow-2xl"
                 onClick={handleLoginClick}
               >
                 Sign in
