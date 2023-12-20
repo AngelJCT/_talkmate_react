@@ -313,6 +313,8 @@
   display: flex; /* centers the image horizontally and vertically */
   justify-content: center;
   align-items: center;
+  /* -webkit-box-reflect: below 1px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.086)); */
   /* Add border or shadow if desired */
 }
 
@@ -323,6 +325,7 @@
   width: 100%;
   object-fit: cover;
   z-index: 20;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
 @keyframes fadeIn {
