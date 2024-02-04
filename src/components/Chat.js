@@ -9,6 +9,7 @@ import { handleSubmit, sendMessage } from "../utils/utils";
 import transition from "../transition";
 import { auth, db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
+import Sidebar from "./Sidebar";
 
 function Chat({
   inputValue,
@@ -61,7 +62,7 @@ function Chat({
         <div className="bg-gray-200 bg-opacity-90 p-2 shadow-xl rounded-bl-2xl rounded-br-2xl z-10 flex items-center justify-between mb-1">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="z-20 ml-3 bg-custom-color rounded-full p-[8px] shadow-xl"
+            className="z-20 ml-3 bg-custom-color rounded-full p-[8px] shadow-md"
           >
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
