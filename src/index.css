@@ -397,17 +397,3 @@
   opacity: 0;
   transform: translateY(100%);
 }
-
-/* Hide sidebar on small screens*/
-@media (max-width: 768px) {
-  .bm-menu {
-    display: none;
-  }
-}
-
-/* Show sidebar on medium screens and larger */
-@media (min-width: 769px) {
-  .bm-menu {
-    display: block;
-  }
-}
