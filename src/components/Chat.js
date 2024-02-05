@@ -59,6 +59,7 @@ function Chat({
       <div className="gradient-01 z-0 absolute"></div>
       <div className="gradient-02 z-0 absolute"></div>
       <div className="flex flex-col h-screen bg-[#35485d]">
+        {/* Header */}
         <div className="bg-gray-200 bg-opacity-90 p-2 shadow-xl rounded-bl-2xl rounded-br-2xl z-10 flex items-center justify-between mb-1">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -72,7 +73,9 @@ function Chat({
           <div className="w-8 mr-7"></div>{" "}
           {/* This is a spacer to balance the button on the left */}
         </div>
-        <div className="flex-grow p-2 md:p-6 overflow-y-auto">
+
+        {/* Chat section */}
+        <div className="flex-grow p-2 md:p-6 lg:px-20 xl:px-[200px] 2xl:px-[400px] 3xl:px-[600px] overflow-y-auto">
           <div className="flex flex-col space-y-4">
             {chatLog.length === 0 ? (
               <GlassCard
@@ -80,6 +83,7 @@ function Chat({
                 setChatLog={setChatLog}
                 setIsLoading={setIsLoading}
                 chatLog={chatLog}
+                className="lg"
               />
             ) : (
               chatLog.map((message, index) => (
@@ -94,7 +98,7 @@ function Chat({
                   <div
                     className={`${
                       message.type === "user"
-                        ? "bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl"
+                        ? "bg-custom-color rounded-br-none rounded-bl-3xl rounded-tr-3xl rounded-tl-3xl backdrop-blur bg-opacity-10 bg-clip-padding"
                         : "bg-gray-600 rounded-bl-none rounded-tr-3xl rounded-tl-3xl rounded-br-3xl"
                     } bg-white bg-opacity-20 backdrop-blur-lg shadow-xl rounded-xl p-5 md:p-5 text-custom-text-color max-w-[90%] md:max-w-[80%] whitespace-pre-wrap overflow-auto`}
                   >
@@ -116,6 +120,8 @@ function Chat({
             <div ref={messageEndRef} />
           </div>
         </div>
+
+        {/* Input section */}
         <form
           onSubmit={(event) =>
             handleSubmit(
@@ -128,7 +134,7 @@ function Chat({
               chatLog
             )
           }
-          className="flex-none p-6"
+          className="flex-none p-6 lg:px-20 xl:px-[200px] 2xl:px-[400px] 3xl:px-[600px]"
         >
           <div className="flex flex-row sm:flex-row rounded-3xl border border-transparent bg-gray-200 bg-opacity-90 shadow-xl">
             <TextareaAutosize
