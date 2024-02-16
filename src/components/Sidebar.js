@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { slide as Menu } from "react-burger-menu";
-import AuthComponent, { UserContext } from "./auth/AuthComponent";
+import { UserContext } from "./auth/AuthComponent";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase";
 import { getDocs, collection } from "firebase/firestore";
 
-function Sidebar({
+function SidebarComponent({
   isOpen,
   onStateChange,
   setChatLog,
@@ -79,12 +79,12 @@ function Sidebar({
     <Menu
       isOpen={isOpen}
       onStateChange={onStateChange}
-      className="bg-gray-50 backdrop-blur bg-opacity-60 bg-clip-padding rounded-br-lg rounded-tr-lg"
+      className="relative bg-gray-50 backdrop-blur bg-opacity-60 bg-clip-padding rounded-br-lg rounded-tr-lg"
       styles={{ bmMenu: { zIndex: 5 } }}
     >
       <button
         onClick={startNewChat}
-        className="new-chat-button bg-custom-color font-medium text-xl w-full pt-5 pb-5 shadow-lg text-custom-text-color rounded-tr-lg"
+        className="new-chat-button bg-custom-color font-medium text-xl w-full pt-5 pb-5 shadow-lg text-custom-text-color hover:bg-custom-blue/80"
       >
         New Chat
       </button>
@@ -97,7 +97,7 @@ function Sidebar({
           className="m-2 flex justify-between items-center position-relative"
         >
           <h3
-            className={`font-medium text-custom-blue pl-3 cursor-pointer border-4 border-custom-blue border-opacity-20 hover:bg-gray-300 rounded-lg pb-2 pt-2 ${
+            className={`font-medium text-custom-blue px-3 cursor-pointer border-4 border-custom-blue border-opacity-20 hover:bg-gray-300 rounded-lg pb-2 pt-2 ${
               index === activeConversationIndex ? "text-blue-700" : ""
             }`}
             onClick={() => loadConversation(index)}
@@ -106,8 +106,13 @@ function Sidebar({
           </h3>
         </div>
       ))}
+      {/* to-do: add language selection feature starting with this button */}
+      {/* <button className="bg-gray-200 bg-opacity-80 w-full cursor-pointer font-medium text-center text-custom-blue py-5 text-lg mt-5 absolute bottom-[68px] hover:bg-gray-300 items-center">
+        Choose a language
+      </button> */}
+
       <button
-        className="logout-button bg-gray-200 bg-opacity-80 w-full absolute cursor-pointer font-medium text-center text-custom-blue shadow-xl pt-5 pb-5 text-xl rounded-br-lg mt-5"
+        className="logout-button bg-gray-200 bg-opacity-80 w-full cursor-pointer font-medium text-center text-custom-blue shadow-xl py-5 text-lg rounded-br-lg mt-5 underline underline-offset-[8px] hover:bg-gray-300"
         onClick={handleLogout}
       >
         Log out
@@ -116,4 +121,4 @@ function Sidebar({
   );
 }
 
-export default Sidebar;
+export default SidebarComponent;
