@@ -34,7 +34,7 @@ export const sendMessage = async (
   };
 
   const data = {
-    model: "gpt-4-preview",
+    model: "gpt-4-turbo-preview",
     messages: [
       {
         role: "system",
